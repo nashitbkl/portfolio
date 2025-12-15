@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nashit Hayath</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:"Segoe UI", Arial, sans-serif;
+  background:#020b14;
+  color:#e6f1ff;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(2,11,20,0.85), rgba(2,11,20,0.6), rgba(2,11,20,0.9)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover no-repeat;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at bottom, rgba(0,140,255,0.18), transparent 60%);
+  animation:drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes drift{
+  from{transform:translateY(0);}
+  to{transform:translateY(-30px);}
+}
+
+/* NAV */
+.logo{
+  position:absolute;
+  top:26px;
+  left:40px;
+  letter-spacing:3px;
+  font-size:16px;
+  z-index:2;
+}
+
+.nav{
+  position:absolute;
+  top:26px;
+  right:40px;
+  z-index:2;
+}
+
+.nav a{
+  color:#e6f1ff;
+  text-decoration:none;
+  margin-left:22px;
+  font-size:12px;
+  letter-spacing:2px;
+  opacity:0.85;
+  transition:0.3s;
+}
+
+.nav a:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+/* CENTER TEXT */
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  max-width:760px;
+  z-index:2;
+}
+
+.center p{
+  font-size:20px;
+  line-height:1.9;
+  letter-spacing:1px;
+  opacity:0;
+  animation:fadeUp 1.8s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* SECTIONS */
+.section{
+  padding:120px 20px;
+  max-width:900px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section h2{
+  margin-bottom:20px;
+  letter-spacing:2px;
+  color:#7cc7ff;
+}
+
+.section a{
+  color:#7cc7ff;
+  text-decoration:none;
+}
+.section a:hover{text-decoration:underline;}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:22px;
+  margin:22px 0;
+  border-left:4px solid #2aa9ff;
+  backdrop-filter:blur(6px);
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:20px;
+  color:#8fbcd6;
+  font-size:13px;
+}
+
+/* BACK TO TOP BUTTON */
+#topBtn{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:none;
+  background:linear-gradient(135deg,#1e90ff,#00c6ff);
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  box-shadow:0 8px 20px rgba(0,140,255,0.4);
+  transition:opacity 0.4s, transform 0.4s;
+  animation:pulse 2s infinite;
+  z-index:999;
+}
+
+#topBtn.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+#topBtn:hover{
+  transform:translateY(-6px) scale(1.05);
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,140,255,0.6);}
+  70%{box-shadow:0 0 0 12px rgba(0,140,255,0);}
+  100%{box-shadow:0 0 0 0 rgba(0,140,255,0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{right:20px;top:20px;}
+  .nav a{margin-left:14px;font-size:11px;}
+  .logo{left:20px;top:20px;}
+  .center p{font-size:16px;}
+  #topBtn{bottom:20px;right:20px;}
+}
+</style>
+
+<script>
+/* Load page at top */
+window.onbeforeunload = () => window.scrollTo(0,0);
+
+window.onload = () => {
+  if(window.location.hash){
+    history.replaceState(null,null,window.location.pathname);
+  }
+  window.scrollTo(0,0);
+};
+
+/* Scroll reveal */
+window.addEventListener("scroll", ()=>{
+  document.querySelectorAll(".section").forEach(sec=>{
+    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
+      sec.classList.add("show");
+    }
+  });
+
+  /* Back to top button */
+  const btn=document.getElementById("topBtn");
+  if(window.scrollY > 400) btn.classList.add("show");
+  else btn.classList.remove("show");
+});
+
+/* Go top */
+function goToTop(){
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo">NASHIT HAYATH</div>
+
+  <div class="nav">
+    <a href="#about">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#education">EDUCATION</a>
+    <a href="#certificates">CERTIFICATES</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+
+  <div class="center">
+    <p>
+      Hello and welcome.<br><br>
+      I am a <strong>Software Engineer</strong> pursuing a
+      <strong>Master of Computer Applications</strong>
+      in Data Science & Big Data Analytics.<br><br>
+      I build practical, real-world systems with clean code,
+      usability, and accuracy.
+    </p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+  <h2>ABOUT</h2>
+  <p>
+    I am a Software Engineer focused on building reliable and scalable
+    web applications. I have hands-on experience with full-stack
+    development using HTML, CSS, JavaScript, and SQL, and enjoy solving
+    real-world problems through clean, maintainable code.
+  </p>
+</div>
+
+<!-- EDUCATION -->
+<div id="education" class="section">
+  <h2>EDUCATION</h2>
+
+  <div class="card">
+    <strong>MCA – Data Science & Big Data Analytics</strong><br>
+    Yenepoya College of Arts and Science, Mangaluru<br>
+    <em>2025 – Present</em>
+  </div>
+
+  <div class="card">
+    <strong>BCA</strong><br>
+    Anjuman Institute of Management & Computer Applications, Bhatkal<br>
+    Final Project: Library Attendance System using QR<br>
+    <em>2021 – 2024</em>
+  </div>
+
+  <div class="card">
+    <strong>Pre-University</strong><br>
+    Anand Ashram Composite PU College, Bhatkal<br>
+    <em>2021</em>
+  </div>
+
+  <div class="card">
+    <strong>Secondary School</strong><br>
+    The Indian School, Bahrain<br>
+    <em>2019</em>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="section">
+  <h2>SKILLS</h2>
+  <ul>
+    <li>HTML, CSS, JavaScript</li>
+    <li>SQL & Database Design</li>
+    <li>XAMPP & Local Server Setup</li>
+    <li>QR-based System Development</li>
+    <li>Problem Solving & Debugging</li>
+  </ul>
+</div>
+
+<!-- CERTIFICATES -->
+<div id="certificates" class="section">
+  <h2>CERTIFICATES</h2>
+  <ul>
+    <li>Design Thinking and Innovation – SWAYAM</li>
+    <li>Python Fundamentals – NASSCOM</li>
+    <li>Responsive Web Development – Infosys</li>
+  </ul>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="section">
+  <h2>PROJECTS</h2>
+
+  <div class="card">
+    <h3>Library Attendance System (BCA)</h3>
+    <p>
+      QR-based system where the first scan records entry time and
+      the second scan records exit time. Built using HTML, CSS,
+      JavaScript, SQL, and XAMPP.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Inventory Management System (MCA)</h3>
+    <p>
+      Full-stack application for managing inventory, sales,
+      expired products, and guest orders with automated updates.
+    </p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+  <h2>CONTACT</h2>
+  <p>📞 +91 8105091363</p>
+  <p>📧 nashitbkl@gmail.com</p>
+  <p>📍 Mangaluru, Karnataka, India</p>
+</div>
+
+<div class="footer">
+  © 2025 Nashit Hayath
+</div>
+
+<!-- BACK TO TOP -->
+<button id="topBtn" onclick="goToTop()">↑</button>
+
+</body>
+</html>
