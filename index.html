@@ -2,71 +2,76 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Nashit Hayath | Data Scientist</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nashit Hayath | Data Scientist</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:"Segoe UI",Arial,sans-serif;background:#020b14;color:#e6f1ff;}
-.hero{height:100vh;background:linear-gradient(rgba(2,11,20,.85),rgba(2,11,20,.6),rgba(2,11,20,.9)),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;position:relative;overflow:hidden;}
-.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at bottom,rgba(0,140,255,.18),transparent 60%);animation:drift 12s ease-in-out infinite alternate;}
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(2,11,20,.85),rgba(2,11,20,.6),rgba(2,11,20,.9)),
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
+position:relative;overflow:hidden;
+}
+.hero:after{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at bottom,rgba(0,140,255,.18),transparent 60%);
+animation:drift 12s ease-in-out infinite alternate;
+}
 @keyframes drift{from{transform:translateY(0)}to{transform:translateY(-30px)}}
-.logo{position:absolute;top:26px;left:40px;letter-spacing:3px;font-size:16px;z-index:2}
-.nav{position:absolute;top:26px;right:40px;z-index:2}
-.nav a{color:#e6f1ff;text-decoration:none;margin-left:22px;font-size:12px;letter-spacing:2px;opacity:.85;transition:.3s}
-.nav a:hover{opacity:1;transform:translateY(-2px)}
-.center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;max-width:760px;z-index:2}
-.center p{font-size:20px;line-height:1.9;animation:fadeUp 1.8s ease forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.section{padding:120px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);transition:1s ease}
-.section.show{opacity:1;transform:translateY(0)}
-.section h2{margin-bottom:20px;letter-spacing:2px;color:#7cc7ff}
-.card{background:rgba(255,255,255,.05);padding:22px;margin:22px 0;border-left:4px solid #2aa9ff;backdrop-filter:blur(6px)}
-.footer{text-align:center;padding:20px;color:#8fbcd6;font-size:13px}
-#topBtn{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;border:none;background:linear-gradient(135deg,#1e90ff,#00c6ff);color:#fff;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:.4s}
-#topBtn.show{opacity:1;pointer-events:auto}
-@media(max-width:900px){.nav{right:20px;top:20px}.nav a{margin-left:14px;font-size:11px}.logo{left:20px;top:20px}.center p{font-size:16px}}
-.cert-link{
-    display:block;
-    color:inherit;
-    text-decoration:none;
-}
-
-.cert-link:hover{
-    color:inherit;
-}
-
-.cert-link .card{
-    transition:.3s;
-    cursor:pointer;
-}
-
-.cert-link:hover .card{
-    transform:translateY(-5px);
-    box-shadow:0 8px 20px rgba(0,140,255,.25);
-}
+.logo{position:absolute;top:26px;left:40px;letter-spacing:3px;font-size:16px;z-index:2;}
+.nav{position:absolute;top:26px;right:40px;z-index:2;}
+.nav a{color:#e6f1ff;text-decoration:none;margin-left:22px;font-size:12px;letter-spacing:2px;opacity:.85;transition:.3s;}
+.nav a:hover{opacity:1;transform:translateY(-2px);}
+.center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;max-width:760px;z-index:2;}
+.center p{font-size:20px;line-height:1.8;}
+.section{padding:120px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);transition:1s;}
+.section.show{opacity:1;transform:translateY(0);}
+.section h2{margin-bottom:20px;color:#7cc7ff;letter-spacing:2px;}
+.card{background:rgba(255,255,255,.05);padding:22px;margin:22px 0;border-left:4px solid #2aa9ff;backdrop-filter:blur(6px);}
+ul{padding-left:20px;line-height:2;}
+.footer{text-align:center;padding:25px;color:#8fbcd6;}
+.cert-link{display:block;color:inherit;text-decoration:none;}
+.cert-link:hover{color:inherit;}
+.cert-link .card{transition:.3s;cursor:pointer;}
+.cert-link:hover .card{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,140,255,.25);}
+#topBtn{position:fixed;bottom:30px;right:30px;width:50px;height:50px;border:none;border-radius:50%;background:#1ea7ff;color:#fff;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
 </style>
+
 <script>
 window.onload=()=>window.scrollTo(0,0);
 window.addEventListener("scroll",()=>{
-document.querySelectorAll(".section").forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight-100)s.classList.add("show");});
-const b=document.getElementById("topBtn");
-window.scrollY>400?b.classList.add("show"):b.classList.remove("show");
+document.querySelectorAll(".section").forEach(s=>{
+if(s.getBoundingClientRect().top<window.innerHeight-100)s.classList.add("show");
 });
-function goToTop(){window.scrollTo({top:0,behavior:"smooth"});}
+const b=document.getElementById("topBtn");
+if(window.scrollY>400)b.classList.add("show");else b.classList.remove("show");
+});
+function goTop(){window.scrollTo({top:0,behavior:"smooth"});}
 </script>
+
 </head>
 <body>
+
 <div class="hero">
 <div class="logo">NASHIT HAYATH</div>
+
 <div class="nav">
 <a href="#about">ABOUT</a>
-<a href="#skills">SKILLS</a>
 <a href="#education">EDUCATION</a>
+<a href="#skills">SKILLS</a>
 <a href="#tech">TECH STACK</a>
 <a href="#projects">PROJECTS</a>
+<a href="#certificates">CERTIFICATES</a>
 <a href="#contact">CONTACT</a>
 </div>
+
 <div class="center">
 <p>
 Hello and welcome.<br><br>
@@ -81,11 +86,7 @@ analytics and intelligent software solutions that solve real-world problems.
 <div id="about" class="section">
 <h2>ABOUT</h2>
 <p>
-I am an aspiring Data Scientist currently pursuing a Master of Computer Applications (MCA) in Data Science & Big Data Analytics at Yenepoya College of Arts and Science, Mangaluru. I have a strong interest in Machine Learning, Artificial Intelligence, Data Analytics, and Big Data technologies, and I enjoy using data to solve real-world problems.
-
-I have hands-on experience with Python, SQL, HTML, CSS, JavaScript, and tools such as Pandas, NumPy, Flask, and Power BI. Through academic and personal projects, I have developed skills in data analysis, predictive modeling, and building intelligent applications.
-
-I am a motivated learner who enjoys exploring new technologies, improving my technical skills, and taking on challenging projects. My goal is to build a successful career as a Data Scientist, where I can apply data-driven solutions to create meaningful impact and drive innovation.
+I am an aspiring Data Scientist currently pursuing a Master of Computer Applications (MCA) in Data Science & Big Data Analytics at Yenepoya College of Arts and Science, Mangaluru. I have a strong interest in Machine Learning, Artificial Intelligence, Data Analytics, and Big Data technologies. I enjoy working with data, building intelligent applications, and continuously learning new technologies to solve real-world problems through data-driven solutions.
 </p>
 </div>
 
@@ -100,37 +101,50 @@ I am a motivated learner who enjoys exploring new technologies, improving my tec
 <div id="skills" class="section">
 <h2>SKILLS</h2>
 <ul>
-<li>Python</li><li>SQL</li><li>Machine Learning</li><li>Data Analysis</li><li>Data Visualization</li><li>Power BI</li><li>HTML, CSS & JavaScript</li><li>Pandas & NumPy</li><li>Git & GitHub</li><li>Problem Solving</li>
+<li>Python</li>
+<li>SQL</li>
+<li>Machine Learning</li>
+<li>Data Analysis</li>
+<li>Data Visualization</li>
+<li>Pandas & NumPy</li>
+<li>Power BI</li>
+<li>HTML, CSS & JavaScript</li>
+<li>Git & GitHub</li>
 </ul>
 </div>
 
 <div id="tech" class="section">
 <h2>TECH STACK</h2>
-<div class="card">Python • Pandas • NumPy • Scikit-learn • SQL • Power BI • HTML • CSS • JavaScript • Flask • Ollama • Llama 3 • Git • GitHub</div>
+<div class="card">
+Python • Pandas • NumPy • Scikit-learn • SQL • Power BI • Flask • Ollama • Llama 3 • HTML • CSS • JavaScript • Git
+</div>
 </div>
 
 <div id="projects" class="section">
 <h2>PROJECTS</h2>
-<div class="card"><h3>MoodMate – AI Mental Wellness Assistant</h3><p>Built an AI-powered chatbot using Python, Flask, Ollama and Llama 3 with conversational memory and intelligent responses.</p></div>
-<div class="card"><h3>Inventory Management System</h3><p>Developed a full-stack inventory application for managing products, sales, purchases and stock using HTML, CSS, JavaScript and SQL.</p></div>
-<div class="card"><h3>Library Attendance System</h3><p>Created a QR-based attendance system that records entry and exit times automatically.</p></div>
+<div class="card">
+<h3>MoodMate – AI Mental Wellness Assistant</h3>
+<p>Built an AI-powered chatbot using Python, Flask, Ollama and Llama 3 with conversational memory and intelligent responses.</p>
+</div>
+<div class="card">
+<h3>Inventory Management System</h3>
+<p>Developed a full-stack inventory management application for managing products, sales, purchases and stock using HTML, CSS, JavaScript and SQL.</p>
+</div>
+<div class="card">
+<h3>Library Attendance System</h3>
+<p>Created a QR-based attendance system that records entry and exit times automatically.</p>
+</div>
 </div>
 
 <div id="certificates" class="section">
+<h2>CERTIFICATES</h2>
 
-    <h2>CERTIFICATES</h2>
-
-    <a href="azure cert.pdf" target="_blank" class="cert-link">
-        <div class="card">
-            <h3>Microsoft Certified: Azure AI Fundamentals</h3>
-            <p>
-                Earned the Microsoft Azure AI Fundamentals certification,
-                demonstrating foundational knowledge of Artificial Intelligence,
-                Machine Learning, Computer Vision, Natural Language Processing,
-                Generative AI, and Microsoft Azure AI services.
-            </p>
-        </div>
-    </a>
+<a href="azure%20cert.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Microsoft Certified: Azure AI Fundamentals</h3>
+<p>Earned the Microsoft Azure AI Fundamentals certification, demonstrating foundational knowledge of Artificial Intelligence, Machine Learning, Computer Vision, Natural Language Processing, Generative AI and Microsoft Azure AI Services.</p>
+</div>
+</a>
 
 </div>
 
@@ -142,6 +156,8 @@ I am a motivated learner who enjoys exploring new technologies, improving my tec
 </div>
 
 <div class="footer">© 2026 Nashit Hayath | Aspiring Data Scientist</div>
-<button id="topBtn" onclick="goToTop()">↑</button>
+
+<button id="topBtn" onclick="goTop()">↑</button>
+
 </body>
 </html>
