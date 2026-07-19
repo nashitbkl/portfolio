@@ -25,59 +25,99 @@ scroll-behavior:smooth;
 body{
 
 font-family:'Poppins',sans-serif;
-
-background:#020b14;
-
+background:#03111f;
 color:white;
-
 overflow-x:hidden;
 
 }
 
-/* SCROLL BAR */
+/* ===========================
+SCROLLBAR
+=========================== */
 
 ::-webkit-scrollbar{
+width:8px;
+}
 
-width:10px;
-
+::-webkit-scrollbar-track{
+background:#041b2c;
 }
 
 ::-webkit-scrollbar-thumb{
-
-background:#1ea7ff;
-
-border-radius:30px;
-
-}
-#education h3{
-    margin-top:25px;
-    margin-bottom:8px;
+background:#27b0ff;
+border-radius:50px;
 }
 
-#education p{
-    margin-bottom:8px;
-    line-height:1.7;
+/* ===========================
+NAVBAR
+=========================== */
+
+nav{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 70px;
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(18px);
+
+z-index:1000;
+
 }
 
-/* HERO */
+.logo{
+
+font-size:22px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:#39b6ff;
+
+}
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:35px;
+
+}
+
+nav ul li a{
+
+text-decoration:none;
+
+color:white;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+color:#39b6ff;
+
+}
+
+/* ===========================
+HERO
+=========================== */
 
 .hero{
 
 height:100vh;
-
-position:relative;
-
-background:
-
-linear-gradient(rgba(2,11,20,.75),
-
-rgba(2,11,20,.70),
-
-rgba(2,11,20,.9)),
-
-url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
-
-center center/cover no-repeat;
 
 display:flex;
 
@@ -86,6 +126,18 @@ justify-content:center;
 align-items:center;
 
 text-align:center;
+
+padding:20px;
+
+background:
+
+linear-gradient(rgba(0,0,0,.72),rgba(3,17,31,.84)),
+
+url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80")
+
+center center/cover;
+
+position:relative;
 
 overflow:hidden;
 
@@ -98,106 +150,35 @@ content:"";
 position:absolute;
 
 width:700px;
-
 height:700px;
 
-background:#1ea7ff;
+background:#009dff;
 
 filter:blur(180px);
 
-opacity:.15;
+opacity:.12;
 
 border-radius:50%;
 
-animation:float 10s infinite alternate;
+animation:floatGlow 10s infinite alternate;
 
 }
 
-@keyframes float{
+@keyframes floatGlow{
 
 from{
 
-transform:translate(-200px,-100px);
+transform:translate(-200px,-120px);
 
 }
 
 to{
 
-transform:translate(150px,120px);
+transform:translate(220px,100px);
 
 }
 
 }
-
-/* NAVBAR */
-
-nav{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-padding:20px 70px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-backdrop-filter:blur(20px);
-
-background:rgba(0,0,0,.15);
-
-z-index:999;
-
-}
-
-.logo{
-
-font-size:18px;
-
-font-weight:700;
-
-letter-spacing:3px;
-
-color:#4dc8ff;
-
-}
-
-nav ul{
-
-display:flex;
-
-list-style:none;
-
-gap:28px;
-
-}
-
-nav ul li a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:14px;
-
-transition:.3s;
-
-}
-
-nav ul li a:hover{
-
-color:#4dc8ff;
-
-}
-
-/* HERO CONTENT */
 
 .hero-content{
 
@@ -207,53 +188,51 @@ z-index:2;
 
 max-width:900px;
 
-padding:20px;
+}
+
+.hero h1{
+
+font-size:72px;
+
+margin-bottom:18px;
 
 }
 
-.hero-content h1{
+.hero span{
 
-font-size:65px;
-
-font-weight:700;
-
-margin-bottom:20px;
+color:#33b5ff;
 
 }
 
-.hero-content h1 span{
+.hero h2{
 
-color:#35b5ff;
-
-}
-
-.hero-content h2{
-
-font-size:28px;
+font-size:30px;
 
 font-weight:400;
 
-margin-bottom:30px;
+margin-bottom:28px;
 
-color:#cfd8e6;
+color:#d8ecfa;
 
 }
 
-.hero-content p{
+.hero p{
 
 font-size:18px;
 
 line-height:1.9;
 
-color:#d7e6f5;
+color:#d8ecfa;
 
-max-width:850px;
+max-width:820px;
 
 margin:auto;
 
 }
 
-/* BUTTONS */
+/* ===========================
+BUTTONS
+=========================== */
 
 .buttons{
 
@@ -271,13 +250,13 @@ flex-wrap:wrap;
 
 .btn{
 
-padding:14px 35px;
+padding:15px 40px;
 
 border-radius:50px;
 
-text-decoration:none;
-
 font-weight:600;
+
+text-decoration:none;
 
 transition:.35s;
 
@@ -285,7 +264,7 @@ transition:.35s;
 
 .primary{
 
-background:#1ea7ff;
+background:#2dafff;
 
 color:white;
 
@@ -293,15 +272,15 @@ color:white;
 
 .primary:hover{
 
-transform:translateY(-4px);
+transform:translateY(-6px);
 
-box-shadow:0 0 25px rgba(30,167,255,.45);
+box-shadow:0 10px 25px rgba(45,175,255,.45);
 
 }
 
 .secondary{
 
-border:2px solid #1ea7ff;
+border:2px solid #2dafff;
 
 color:white;
 
@@ -309,31 +288,33 @@ color:white;
 
 .secondary:hover{
 
-background:#1ea7ff;
+background:#2dafff;
 
 }
 
-/* SECTION */
+/* ===========================
+SECTIONS
+=========================== */
 
 section{
 
-max-width:1100px;
+max-width:1150px;
 
 margin:auto;
 
-padding:120px 20px;
+padding:110px 20px;
 
 }
 
 .section-title{
 
-font-size:36px;
-
 text-align:center;
+
+font-size:45px;
 
 margin-bottom:70px;
 
-color:#58c7ff;
+color:#39b6ff;
 
 position:relative;
 
@@ -345,67 +326,107 @@ content:"";
 
 position:absolute;
 
-width:100px;
-
-height:4px;
-
-background:#1ea7ff;
+bottom:-18px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-bottom:-18px;
+width:100px;
+
+height:5px;
+
+border-radius:30px;
+
+background:#39b6ff;
+
+}
+
+/* ===========================
+CARDS
+=========================== */
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+padding:30px;
 
 border-radius:20px;
 
+transition:.35s;
+
+margin-bottom:28px;
+
 }
 
-/* GLASS CARD */
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 15px 35px rgba(45,175,255,.20);
+
+border-color:#39b6ff;
+
+}
+
+/* ===========================
+CERTIFICATE LINKS
+=========================== */
 
 .cert-link{
-    display:block;
-    text-decoration:none !important;
-    color:inherit !important;
+
+display:block;
+
+text-decoration:none !important;
+
+color:inherit !important;
+
 }
 
-.cert-link:link,
 .cert-link:visited,
 .cert-link:hover,
 .cert-link:active{
-    text-decoration:none !important;
-    color:inherit !important;
-}
 
-.cert-link h3{
-    color:#ffffff;
-    text-decoration:none;
-}
+text-decoration:none;
 
-.cert-link p{
-    color:#d7e6f5;
-    text-decoration:none;
+color:inherit;
+
 }
 
 .cert-link .card{
-    cursor:pointer;
-    transition:0.3s ease;
+
+cursor:pointer;
+
 }
 
-.cert-link:hover .card{
-    transform:translateY(-6px);
-    border-left:4px solid #35b5ff;
-    box-shadow:0 10px 25px rgba(53,181,255,.25);
+/* ===========================
+GRID
+=========================== */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
 }
 
-
-/* RESPONSIVE */
+/* ===========================
+RESPONSIVE
+=========================== */
 
 @media(max-width:900px){
 
 nav{
 
-padding:20px;
+padding:18px 20px;
 
 }
 
@@ -415,21 +436,27 @@ display:none;
 
 }
 
-.hero-content h1{
+.hero h1{
 
-font-size:42px;
-
-}
-
-.hero-content h2{
-
-font-size:22px;
+font-size:46px;
 
 }
 
-.hero-content p{
+.hero h2{
+
+font-size:24px;
+
+}
+
+.hero p{
 
 font-size:16px;
+
+}
+
+.section-title{
+
+font-size:36px;
 
 }
 
@@ -457,6 +484,8 @@ NASHIT HAYATH
 
 <li><a href="#skills">Skills</a></li>
 
+<li><a href="#tech">Tech Stack</a></li>
+
 <li><a href="#projects">Projects</a></li>
 
 <li><a href="#certificates">Certificates</a></li>
@@ -467,15 +496,17 @@ NASHIT HAYATH
 
 </nav>
 
-<div class="hero">
+<!-- ===========================
+HERO
+=========================== -->
+
+<section class="hero">
 
 <div class="hero-content">
 
 <h1>
 
-Hi, I'm
-
-<span>Nashit Hayath</span>
+Hi, I'm <span>Nashit Hayath</span>
 
 </h1>
 
@@ -489,9 +520,10 @@ Aspiring Data Scientist
 
 I am currently pursuing a Master of Computer Applications (MCA)
 specializing in Data Science & Big Data Analytics.
-I am passionate about Machine Learning, Artificial Intelligence,
-Data Analytics, and transforming complex data into meaningful insights
-that solve real-world problems.
+I enjoy building AI-powered applications,
+analyzing data,
+developing machine learning solutions,
+and solving real-world problems through data-driven decision making.
 
 </p>
 
@@ -513,10 +545,10 @@ Contact Me
 
 </div>
 
-</div>
-<!-- ========================= -->
-<!-- ABOUT -->
-<!-- ========================= -->
+</section>
+<!-- ===========================
+ABOUT
+=========================== -->
 
 <section id="about">
 
@@ -524,25 +556,15 @@ Contact Me
 
 <div class="card">
 
-<p style="font-size:18px; line-height:2; color:#d7e6f5;">
+<p style="font-size:18px;line-height:2;color:#d8ecfa;">
 
-I am an aspiring Data Scientist currently pursuing a Master of Computer
-Applications (MCA) in Data Science & Big Data Analytics at Yenepoya
-College of Arts and Science, Mangaluru.
+I am an aspiring Data Scientist currently pursuing a Master of Computer Applications (MCA) in Data Science & Big Data Analytics at Yenepoya College of Arts and Science, Mangaluru.
 
-I have a strong interest in Machine Learning, Artificial Intelligence,
-Data Analytics, Data Visualization and Big Data technologies.
-I enjoy analyzing data, building intelligent applications and creating
-solutions that solve real-world problems.
+I have a strong interest in Machine Learning, Artificial Intelligence, Data Analytics, Big Data Technologies and Data Visualization. I enjoy transforming raw data into meaningful insights and developing intelligent applications that solve real-world problems.
 
-Along with data science, I have experience in Python, SQL,
-HTML, CSS, JavaScript, Flask, Power BI and Git.
-I continuously improve my technical knowledge by working on projects,
-earning certifications and exploring modern AI technologies.
+My technical skills include Python, SQL, HTML, CSS, JavaScript, Flask, Pandas, NumPy, Power BI and GitHub. I continuously improve my knowledge by building projects, completing professional certifications and exploring modern AI technologies.
 
-My goal is to build a successful career as a Data Scientist,
-developing intelligent systems that help organizations make
-better data-driven decisions.
+My goal is to begin my career as a Data Scientist where I can apply analytical thinking, machine learning and problem-solving skills to create impactful, data-driven solutions.
 
 </p>
 
@@ -550,133 +572,173 @@ better data-driven decisions.
 
 </section>
 
-
-<!-- ========================= -->
-<!-- EDUCATION -->
-<!-- ========================= -->
+<!-- ===========================
+EDUCATION
+=========================== -->
 
 <section id="education">
 
-<h2 class="section-title">
+<h2 class="section-title">Education</h2>
 
-Education
+<div class="grid">
 
-</h2>
+<div class="card">
 
-<div class="card education-card">
-    <h3>MCA – Data Science & Big Data Analytics</h3>
-    <p>Yenepoya College of Arts and Science, Mangaluru</p>
-    <p>2025 – Present</p>
+<h3 style="color:#39b6ff;">Master of Computer Applications (MCA)</h3>
+
+<br>
+
+<p><strong>Specialization:</strong> Data Science & Big Data Analytics</p>
+
+<br>
+
+<p><strong>College:</strong> Yenepoya College of Arts and Science, Mangaluru</p>
+
+<br>
+
+<p><strong>Duration:</strong> 2025 – Present</p>
+
 </div>
 
-<div class="card education-card">
-    <h3>Bachelor of Computer Applications (BCA)</h3>
-    <p>Anjuman Institute of Management & Computer Applications, Bhatkal</p>
-    <p>2021 – 2024</p>
+<div class="card">
+
+<h3 style="color:#39b6ff;">Bachelor of Computer Applications (BCA)</h3>
+
+<br>
+
+<p><strong>College:</strong> Anjuman Institute of Management & Computer Applications, Bhatkal</p>
+
+<br>
+
+<p><strong>Duration:</strong> 2021 – 2024</p>
+
 </div>
 
-<div class="card education-card">
-    <h3>Pre-University</h3>
-    <p>Anand Ashram Composite PU College, Bhatkal</p>
-    <p>2021</p>
+<div class="card">
+
+<h3 style="color:#39b6ff;">Pre-University</h3>
+
+<br>
+
+<p><strong>College:</strong> Anand Ashram Composite PU College, Bhatkal</p>
+
+<br>
+
+<p><strong>Completed:</strong> 2021</p>
+
 </div>
 
-<div class="card education-card">
-    <h3>Secondary School</h3>
-    <p>The Indian School, Kingdom of Bahrain</p>
-    <p>2019</p>
+<div class="card">
+
+<h3 style="color:#39b6ff;">Secondary School</h3>
+
+<br>
+
+<p><strong>School:</strong> The Indian School, Kingdom of Bahrain</p>
+
+<br>
+
+<p><strong>Completed:</strong> 2019</p>
+
+</div>
+
 </div>
 
 </section>
 
-
-<!-- ========================= -->
-<!-- SKILLS -->
-<!-- ========================= -->
+<!-- ===========================
+SKILLS
+=========================== -->
 
 <section id="skills">
 
-<h2 class="section-title">
+<h2 class="section-title">Skills</h2>
 
-Skills
-
-</h2>
-
-<div style="display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;">
+<div class="grid">
 
 <div class="card">
 
-<h3>Programming</h3>
+<h3 style="color:#39b6ff;">Programming</h3>
 
-<p>
+<br>
 
-Python<br>
+<ul style="padding-left:20px;line-height:2;">
 
-SQL<br>
+<li>Python</li>
 
-HTML<br>
+<li>SQL</li>
 
-CSS<br>
+<li>HTML5</li>
 
-JavaScript
+<li>CSS3</li>
 
-</p>
+<li>JavaScript</li>
+
+</ul>
 
 </div>
 
 <div class="card">
 
-<h3>Data Science</h3>
+<h3 style="color:#39b6ff;">Data Science</h3>
 
-<p>
+<br>
 
-Machine Learning<br>
+<ul style="padding-left:20px;line-height:2;">
 
-Data Analytics<br>
+<li>Machine Learning</li>
 
-Data Visualization<br>
+<li>Artificial Intelligence</li>
 
-Artificial Intelligence
+<li>Data Analytics</li>
 
-</p>
+<li>Data Visualization</li>
 
-</div>
+<li>Big Data Analytics</li>
 
-<div class="card">
-
-<h3>Libraries & Frameworks</h3>
-
-<p>
-
-Pandas<br>
-
-NumPy<br>
-
-Scikit-learn<br>
-
-Flask
-
-</p>
+</ul>
 
 </div>
 
 <div class="card">
 
-<h3>Tools</h3>
+<h3 style="color:#39b6ff;">Libraries & Frameworks</h3>
 
-<p>
+<br>
 
-Power BI<br>
+<ul style="padding-left:20px;line-height:2;">
 
-Git & GitHub<br>
+<li>Pandas</li>
 
-VS Code<br>
+<li>NumPy</li>
 
-XAMPP
+<li>Scikit-learn</li>
 
-</p>
+<li>Flask</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3 style="color:#39b6ff;">Tools & Platforms</h3>
+
+<br>
+
+<ul style="padding-left:20px;line-height:2;">
+
+<li>Power BI</li>
+
+<li>Git</li>
+
+<li>GitHub</li>
+
+<li>VS Code</li>
+
+<li>Microsoft Azure AI</li>
+
+</ul>
 
 </div>
 
@@ -684,286 +746,667 @@ XAMPP
 
 </section>
 
-
-<!-- ========================= -->
-<!-- TECH STACK -->
-<!-- ========================= -->
+<!-- ===========================
+TECH STACK
+=========================== -->
 
 <section id="tech">
 
-<h2 class="section-title">
+<h2 class="section-title">Tech Stack</h2>
 
-Tech Stack
-
-</h2>
-
-<div style="display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;">
+<div class="grid">
 
 <div class="card" style="text-align:center;">
-🐍
-<h3>Python</h3>
+<h3>🐍 Python</h3>
+<p>Programming & Data Analysis</p>
 </div>
 
 <div class="card" style="text-align:center;">
-🗄️
-<h3>SQL</h3>
+<h3>🗄 SQL</h3>
+<p>Database Management</p>
 </div>
 
 <div class="card" style="text-align:center;">
-📊
-<h3>Power BI</h3>
+<h3>📊 Power BI</h3>
+<p>Business Intelligence</p>
 </div>
 
 <div class="card" style="text-align:center;">
-📈
-<h3>Pandas</h3>
+<h3>📈 Pandas</h3>
+<p>Data Processing</p>
 </div>
 
 <div class="card" style="text-align:center;">
-🔢
-<h3>NumPy</h3>
+<h3>🔢 NumPy</h3>
+<p>Numerical Computing</p>
 </div>
 
 <div class="card" style="text-align:center;">
-🤖
-<h3>Machine Learning</h3>
+<h3>🤖 Machine Learning</h3>
+<p>Predictive Models</p>
 </div>
 
 <div class="card" style="text-align:center;">
-🧠
-<h3>Artificial Intelligence</h3>
+<h3>🧠 Artificial Intelligence</h3>
+<p>AI Applications</p>
 </div>
 
 <div class="card" style="text-align:center;">
-🌐
-<h3>Flask</h3>
+<h3>🌐 Flask</h3>
+<p>Python Web Framework</p>
 </div>
 
 <div class="card" style="text-align:center;">
-💻
-<h3>HTML/CSS</h3>
+<h3>☁ Microsoft Azure AI</h3>
+<p>AI Fundamentals</p>
 </div>
 
 <div class="card" style="text-align:center;">
-⚡
-<h3>JavaScript</h3>
+<h3>💻 HTML5</h3>
+<p>Frontend Development</p>
 </div>
 
 <div class="card" style="text-align:center;">
-🐙
-<h3>GitHub</h3>
+<h3>🎨 CSS3</h3>
+<p>Responsive Design</p>
 </div>
 
 <div class="card" style="text-align:center;">
-📂
-<h3>VS Code</h3>
+<h3>⚡ JavaScript</h3>
+<p>Interactive Web Development</p>
 </div>
 
 </div>
 
 </section>
-<!-- ========================= -->
-<!-- PROJECTS -->
-<!-- ========================= -->
+<!-- ===========================
+PROJECTS
+=========================== -->
 
 <section id="projects">
 
 <h2 class="section-title">Projects</h2>
 
+<div class="grid">
+
 <div class="card">
 
-<h3>MoodMate – AI Mental Wellness Assistant</h3>
+<h3 style="color:#39b6ff;">🧠 MoodMate – AI Mental Wellness Assistant</h3>
+
+<br>
+
+<p style="line-height:1.9;">
+
+MoodMate is an AI-powered mental wellness assistant developed using
+Python, Flask, Ollama and Llama 3.
+
+It allows users to communicate naturally through an intelligent chatbot,
+stores conversation memory,
+understands context,
+and provides supportive responses.
+
+The application demonstrates AI integration,
+Natural Language Processing concepts,
+memory management,
+and a responsive web interface.
+
+</p>
+
+<br>
+
+<p><strong>Technologies:</strong></p>
 
 <p>
-An AI-powered chatbot developed using Python, Flask, Ollama and Llama 3.
-The application understands user conversations, remembers context,
-and provides intelligent, human-like responses for mental wellness support.
+
+Python • Flask • Ollama • Llama 3 • HTML • CSS • JavaScript
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Inventory Management System</h3>
+<h3 style="color:#39b6ff;">📦 Inventory Management System</h3>
+
+<br>
+
+<p style="line-height:1.9;">
+
+A web-based inventory management application developed to manage products,
+categories,
+sales,
+purchases,
+guest orders and stock records.
+
+The system provides CRUD operations,
+database integration,
+and an easy-to-use dashboard for inventory tracking.
+
+</p>
+
+<br>
+
+<p><strong>Technologies:</strong></p>
 
 <p>
-Developed a complete inventory management application using HTML, CSS,
-JavaScript and SQL. The system manages products, purchases, sales,
-guest orders and inventory records efficiently.
+
+HTML • CSS • JavaScript • SQL • MySQL
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>QR Library Attendance System</h3>
+<h3 style="color:#39b6ff;">📚 QR Library Attendance System</h3>
+
+<br>
+
+<p style="line-height:1.9;">
+
+Designed and implemented a QR-based attendance management system
+that records student entry and exit automatically.
+
+The system reduces manual attendance,
+improves accuracy,
+and securely stores attendance records inside a SQL database.
+
+</p>
+
+<br>
+
+<p><strong>Technologies:</strong></p>
 
 <p>
-Built a QR code based attendance system where the first scan records
-entry time and the second scan records exit time automatically.
-Developed using HTML, CSS, JavaScript and SQL.
+
+PHP • HTML • CSS • JavaScript • MySQL • QR Code
+
 </p>
 
 </div>
+
+</div>
+
 </section>
 
-<!-- ========================= -->
-<!-- CERTIFICATES -->
-<!-- ========================= -->
+<!-- ===========================
+CERTIFICATES
+=========================== -->
 
 <section id="certificates">
 
 <h2 class="section-title">Certificates</h2>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;">
+<div class="grid">
 
 <a href="azure-ai-fundamentals.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Microsoft Azure AI Fundamentals</h3>
-<p>Microsoft Certified AI Fundamentals Certification.</p>
-</div>
-</a>
-
-<a href="machine_learning.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Machine Learning</h3>
-<p>Machine Learning Certification.</p>
-</div>
-</a>
-
-<a href="semantic_search.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Semantic Search</h3>
-<p>Semantic Search Certification.</p>
-</div>
-</a>
-
-<a href="cloud_computing.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Cloud Computing</h3>
-<p>Cloud Computing Certification.</p>
-</div>
-</a>
-
-<a href="ethical_hacking.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Ethical Hacking</h3>
-<p>Ethical Hacking Certification.</p>
-</div>
-</a>
-
-<a href="Build_Responsive_Website.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Responsive Web Development</h3>
-<p>Responsive Website Development Certificate.</p>
-</div>
-</a>
-
-<a href="swayam_cert.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Design Thinking & Innovation</h3>
-<p>SWAYAM Certification.</p>
-</div>
-</a>
-
-<a href="Coursera 2OVR4A8M9UKW.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>GenAI for Data Engineers: Scaling with GenAI</h3>
-<p>Professional Online Learning Certificate.</p>
-</div>
-</a>
-
-<a href="DVT.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Data Visualization Techniques</h3>
-<p>Professional Certification.</p>
-</div>
-</a>
-
-<a href="Nashit+Hayath_15399.pdf" target="_blank" class="cert-link">
-<div class="card">
-<h3>Python Fundamentals</h3>
-<p>Professional Technical Certification.</p>
-</div>
-</a>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- CONTACT -->
-<!-- ========================= -->
-
-<section id="contact">
-
-<h2 class="section-title">Contact</h2>
 
 <div class="card">
 
-<h3>Let's Connect</h3>
+<h3>🏆 Microsoft Azure AI Fundamentals</h3>
 
 <br>
-
-<p>📞 <strong>+91 8105091363</strong></p>
-
-<br>
-
-<p>📧 <strong>nashitbkl@gmail.com</strong></p>
-
-<br>
-
-<p>📍 Mangaluru, Karnataka, India</p>
-
-<br><br>
 
 <p>
 
-Thank you for visiting my portfolio.
-Feel free to connect with me for opportunities,
-collaborations or discussions related to
-Data Science, Machine Learning and AI.
+Microsoft Certified Azure AI Fundamentals certification covering Artificial Intelligence,
+Machine Learning,
+Computer Vision,
+Natural Language Processing and Generative AI concepts.
 
 </p>
 
 </div>
 
+</a>
+
+<a href="machine_learning.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>🤖 Machine Learning</h3>
+
+<br>
+
+<p>
+
+Certification covering supervised learning,
+unsupervised learning,
+model evaluation,
+and practical Machine Learning concepts.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="semantic_search.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>🔍 Semantic Search</h3>
+
+<br>
+
+<p>
+
+Certification demonstrating knowledge of semantic search,
+vector embeddings,
+retrieval techniques
+and intelligent search systems.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="cloud_computing.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>☁ Cloud Computing</h3>
+
+<br>
+
+<p>
+
+Fundamentals of cloud architecture,
+deployment models,
+virtualization,
+and cloud services.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="ethical_hacking.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>🛡 Ethical Hacking</h3>
+
+<br>
+
+<p>
+
+Learned cybersecurity principles,
+ethical hacking methodologies,
+network security
+and vulnerability assessment.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="Build_Responsive_Website.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>🌐 Responsive Web Development</h3>
+
+<br>
+
+<p>
+
+Certification in responsive web design,
+HTML5,
+CSS3
+and mobile-friendly website development.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="swayam_cert.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>💡 Design Thinking & Innovation</h3>
+
+<br>
+
+<p>
+
+SWAYAM certification focused on innovation,
+creative problem solving,
+user-centered design
+and product development.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="Coursera 2OVR4A8M9UKW.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>🎓 Coursera Professional Certificate</h3>
+
+<br>
+
+<p>
+
+Professional online certification demonstrating continuous learning
+and technical skill development.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="DVT.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>📄 Data Visualization Techniques Certification</h3>
+
+<br>
+
+<p>
+
+Professional certification completed successfully as part of technical skill development.
+
+</p>
+
+</div>
+
+</a>
+
+<a href="Nashit+Hayath_15399.pdf" target="_blank" class="cert-link">
+
+<div class="card">
+
+<h3>🏅 Python Fundamentals</h3>
+
+<br>
+
+<p>
+
+Professional technical certification demonstrating additional practical knowledge and skills.
+
+</p>
+
+</div>
+
+</a>
+
+</div>
+
+</section>
+<!-- ===========================
+CONTACT
+=========================== -->
+
+<section id="contact">
+
+<h2 class="section-title">Contact Me</h2>
+
+<div class="card" style="text-align:center;">
+
+<h2 style="color:#39b6ff;margin-bottom:20px;">
+
+Let's Connect
+
+</h2>
+
+<p style="line-height:2;font-size:17px;">
+
+I'm always interested in internships,
+entry-level opportunities,
+collaborations and Data Science projects.
+
+Feel free to connect with me.
+
+</p>
+
+<br>
+
+<p>
+
+📧 <strong>Email:</strong><br>
+
+<a href="mailto:nashitbkl@gmail.com"
+style="color:#39b6ff;text-decoration:none;">
+
+nashitbkl@gmail.com
+
+</a>
+
+</p>
+
+<br>
+
+<p>
+
+📱 <strong>Phone:</strong><br>
+
++91 8105091363
+
+</p>
+
+<br>
+
+<p>
+
+📍 <strong>Location:</strong><br>
+
+Bhatkal, Karnataka, India
+
+</p>
+
+<br><br>
+
+<div class="buttons">
+
+<a href="NASHIT HAYATH.pdf"
+
+class="btn primary"
+
+target="_blank">
+
+📄 Download Resume
+
+</a>
+
+<a href="https://github.com/nashitbkl"
+
+class="btn secondary"
+
+target="_blank">
+
+GitHub
+
+</a>
+
+<a href="https://linkedin.com/in/nashit-hayath"
+
+class="btn secondary"
+
+target="_blank">
+
+LinkedIn
+
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+<!-- ===========================
+FOOTER
+=========================== -->
 
-<footer style="text-align:center;padding:40px;background:#01070d;color:#9fb9d1;">
+<footer
+style="padding:40px 20px;
+text-align:center;
+background:#02101d;
+margin-top:60px;
+border-top:1px solid rgba(255,255,255,.08);">
 
-© 2026 Nashit Hayath • Aspiring Data Scientist
+<p style="color:#bcd7ea;">
+
+© 2026 Nashit Hayath • All Rights Reserved
+
+</p>
+
+<br>
+
+<p style="color:#7aa8c7;font-size:14px;">
+
+Designed & Developed by Nashit Hayath
+
+</p>
 
 </footer>
 
-<!-- ========================= -->
-<!-- BACK TO TOP -->
-<!-- ========================= -->
+<!-- ===========================
+BACK TO TOP BUTTON
+=========================== -->
 
-<button onclick="window.scrollTo({top:0,behavior:'smooth'})"
+<button
 
-style="position:fixed;
+id="topBtn"
+
+onclick="topFunction()"
+
+style="
+
+display:none;
+
+position:fixed;
+
 bottom:30px;
+
 right:30px;
+
 width:55px;
+
 height:55px;
+
 border:none;
+
 border-radius:50%;
-background:#1ea7ff;
+
+background:#2dafff;
+
 color:white;
+
 font-size:22px;
+
 cursor:pointer;
-box-shadow:0 10px 25px rgba(30,167,255,.4);">
+
+box-shadow:0 10px 25px rgba(45,175,255,.4);
+
+transition:.3s;
+
+z-index:999;">
 
 ↑
 
 </button>
+
+<!-- ===========================
+JAVASCRIPT
+=========================== -->
+
+<script>
+
+// Back To Top Button
+
+let topButton=document.getElementById("topBtn");
+
+window.onscroll=function(){
+
+if(document.body.scrollTop>300||
+
+document.documentElement.scrollTop>300){
+
+topButton.style.display="block";
+
+}
+
+else{
+
+topButton.style.display="none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+// Fade In Animation
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate([
+
+{
+
+opacity:0,
+
+transform:"translateY(40px)"
+
+},
+
+{
+
+opacity:1,
+
+transform:"translateY(0)"
+
+}
+
+],{
+
+duration:700,
+
+fill:"forwards"
+
+});
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section,.card").forEach(el=>{
+
+observer.observe(el);
+
+});
+
+</script>
 
 </body>
 
