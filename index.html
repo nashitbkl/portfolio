@@ -1,163 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nashit Hayath | Data Scientist</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Segoe UI",Arial,sans-serif;background:#020b14;color:#e6f1ff;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:#020b14;
+
+color:white;
+
+overflow-x:hidden;
+
+}
+
+/* SCROLL BAR */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#1ea7ff;
+
+border-radius:30px;
+
+}
+
+/* HERO */
+
 .hero{
+
 height:100vh;
+
+position:relative;
+
 background:
-linear-gradient(rgba(2,11,20,.85),rgba(2,11,20,.6),rgba(2,11,20,.9)),
-url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
-position:relative;overflow:hidden;
+
+linear-gradient(rgba(2,11,20,.75),
+
+rgba(2,11,20,.70),
+
+rgba(2,11,20,.9)),
+
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+
+center center/cover no-repeat;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+overflow:hidden;
+
 }
-.hero:after{
+
+.hero::before{
+
 content:"";
+
 position:absolute;
-inset:0;
-background:radial-gradient(circle at bottom,rgba(0,140,255,.18),transparent 60%);
-animation:drift 12s ease-in-out infinite alternate;
+
+width:700px;
+
+height:700px;
+
+background:#1ea7ff;
+
+filter:blur(180px);
+
+opacity:.15;
+
+border-radius:50%;
+
+animation:float 10s infinite alternate;
+
 }
-@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-30px)}}
-.logo{position:absolute;top:26px;left:40px;letter-spacing:3px;font-size:16px;z-index:2;}
-.nav{position:absolute;top:26px;right:40px;z-index:2;}
-.nav a{color:#e6f1ff;text-decoration:none;margin-left:22px;font-size:12px;letter-spacing:2px;opacity:.85;transition:.3s;}
-.nav a:hover{opacity:1;transform:translateY(-2px);}
-.center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;max-width:760px;z-index:2;}
-.center p{font-size:20px;line-height:1.8;}
-.section{padding:120px 20px;max-width:900px;margin:auto;opacity:0;transform:translateY(40px);transition:1s;}
-.section.show{opacity:1;transform:translateY(0);}
-.section h2{margin-bottom:20px;color:#7cc7ff;letter-spacing:2px;}
-.card{background:rgba(255,255,255,.05);padding:22px;margin:22px 0;border-left:4px solid #2aa9ff;backdrop-filter:blur(6px);}
-ul{padding-left:20px;line-height:2;}
-.footer{text-align:center;padding:25px;color:#8fbcd6;}
-.cert-link{display:block;color:inherit;text-decoration:none;}
-.cert-link:hover{color:inherit;}
-.cert-link .card{transition:.3s;cursor:pointer;}
-.cert-link:hover .card{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,140,255,.25);}
-#topBtn{position:fixed;bottom:30px;right:30px;width:50px;height:50px;border:none;border-radius:50%;background:#1ea7ff;color:#fff;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;}
-#topBtn.show{opacity:1;pointer-events:auto;}
+
+@keyframes float{
+
+from{
+
+transform:translate(-200px,-100px);
+
+}
+
+to{
+
+transform:translate(150px,120px);
+
+}
+
+}
+
+/* NAVBAR */
+
+nav{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+padding:20px 70px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+backdrop-filter:blur(20px);
+
+background:rgba(0,0,0,.15);
+
+z-index:999;
+
+}
+
+.logo{
+
+font-size:18px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+color:#4dc8ff;
+
+}
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:28px;
+
+}
+
+nav ul li a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:14px;
+
+transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+color:#4dc8ff;
+
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+padding:20px;
+
+}
+
+.hero-content h1{
+
+font-size:65px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.hero-content h1 span{
+
+color:#35b5ff;
+
+}
+
+.hero-content h2{
+
+font-size:28px;
+
+font-weight:400;
+
+margin-bottom:30px;
+
+color:#cfd8e6;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
+line-height:1.9;
+
+color:#d7e6f5;
+
+max-width:850px;
+
+margin:auto;
+
+}
+
+/* BUTTONS */
+
+.buttons{
+
+margin-top:45px;
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:14px 35px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.primary{
+
+background:#1ea7ff;
+
+color:white;
+
+}
+
+.primary:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 0 25px rgba(30,167,255,.45);
+
+}
+
+.secondary{
+
+border:2px solid #1ea7ff;
+
+color:white;
+
+}
+
+.secondary:hover{
+
+background:#1ea7ff;
+
+}
+
+/* SECTION */
+
+section{
+
+max-width:1100px;
+
+margin:auto;
+
+padding:120px 20px;
+
+}
+
+.section-title{
+
+font-size:36px;
+
+text-align:center;
+
+margin-bottom:70px;
+
+color:#58c7ff;
+
+position:relative;
+
+}
+
+.section-title::after{
+
+content:"";
+
+position:absolute;
+
+width:100px;
+
+height:4px;
+
+background:#1ea7ff;
+
+left:50%;
+
+transform:translateX(-50%);
+
+bottom:-18px;
+
+border-radius:20px;
+
+}
+
+/* GLASS CARD */
+
+.cert-link{
+    display:block;
+    text-decoration:none !important;
+    color:inherit !important;
+}
+
+.cert-link:link,
+.cert-link:visited,
+.cert-link:hover,
+.cert-link:active{
+    text-decoration:none !important;
+    color:inherit !important;
+}
+
+.cert-link h3{
+    color:#ffffff;
+    text-decoration:none;
+}
+
+.cert-link p{
+    color:#d7e6f5;
+    text-decoration:none;
+}
+
+.cert-link .card{
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.cert-link:hover .card{
+    transform:translateY(-6px);
+    border-left:4px solid #35b5ff;
+    box-shadow:0 10px 25px rgba(53,181,255,.25);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+nav{
+
+padding:20px;
+
+}
+
+nav ul{
+
+display:none;
+
+}
+
+.hero-content h1{
+
+font-size:42px;
+
+}
+
+.hero-content h2{
+
+font-size:22px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
+
+}
+
+}
+
 </style>
 
-<script>
-window.onload=()=>window.scrollTo(0,0);
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".section").forEach(s=>{
-if(s.getBoundingClientRect().top<window.innerHeight-100)s.classList.add("show");
-});
-const b=document.getElementById("topBtn");
-if(window.scrollY>400)b.classList.add("show");else b.classList.remove("show");
-});
-function goTop(){window.scrollTo({top:0,behavior:"smooth"});}
-</script>
-
 </head>
+
 <body>
 
-<div class="hero">
-<div class="logo">NASHIT HAYATH</div>
+<nav>
 
-<div class="nav">
-<a href="#about">ABOUT</a>
-<a href="#education">EDUCATION</a>
-<a href="#skills">SKILLS</a>
-<a href="#tech">TECH STACK</a>
-<a href="#projects">PROJECTS</a>
-<a href="#certificates">CERTIFICATES</a>
-<a href="#contact">CONTACT</a>
+<div class="logo">
+
+NASHIT HAYATH
+
 </div>
 
-<div class="center">
-<p>
-Hello and welcome.<br><br>
-I am an <strong>Aspiring Data Scientist</strong> pursuing a
-<strong>Master of Computer Applications</strong> in Data Science & Big Data Analytics.<br><br>
-I enjoy transforming data into meaningful insights through machine learning,
-analytics and intelligent software solutions that solve real-world problems.
-</p>
-</div>
-</div>
-
-<div id="about" class="section">
-<h2>ABOUT</h2>
-<p>
-I am an aspiring Data Scientist currently pursuing a Master of Computer Applications (MCA) in Data Science & Big Data Analytics at Yenepoya College of Arts and Science, Mangaluru. I have a strong interest in Machine Learning, Artificial Intelligence, Data Analytics, and Big Data technologies. I enjoy working with data, building intelligent applications, and continuously learning new technologies to solve real-world problems through data-driven solutions.
-</p>
-</div>
-
-<div id="education" class="section">
-<h2>EDUCATION</h2>
-<div class="card"><strong>MCA – Data Science & Big Data Analytics</strong><br>Yenepoya College of Arts and Science, Mangaluru<br><em>2025 – Present</em></div>
-<div class="card"><strong>BCA</strong><br>Anjuman Institute of Management & Computer Applications, Bhatkal<br><em>2021 – 2024</em></div>
-<div class="card"><strong>Pre-University</strong><br>Anand Ashram Composite PU College, Bhatkal</div>
-<div class="card"><strong>Secondary School</strong><br>The Indian School, Bahrain</div>
-</div>
-
-<div id="skills" class="section">
-<h2>SKILLS</h2>
 <ul>
-<li>Python</li>
-<li>SQL</li>
-<li>Machine Learning</li>
-<li>Data Analysis</li>
-<li>Data Visualization</li>
-<li>Pandas & NumPy</li>
-<li>Power BI</li>
-<li>HTML, CSS & JavaScript</li>
-<li>Git & GitHub</li>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#education">Education</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#certificates">Certificates</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
 </ul>
+
+</nav>
+
+<div class="hero">
+
+<div class="hero-content">
+
+<h1>
+
+Hi, I'm
+
+<span>Nashit Hayath</span>
+
+</h1>
+
+<h2>
+
+Aspiring Data Scientist
+
+</h2>
+
+<p>
+
+I am currently pursuing a Master of Computer Applications (MCA)
+specializing in Data Science & Big Data Analytics.
+I am passionate about Machine Learning, Artificial Intelligence,
+Data Analytics, and transforming complex data into meaningful insights
+that solve real-world problems.
+
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn primary">
+
+View Projects
+
+</a>
+
+<a href="#contact" class="btn secondary">
+
+Contact Me
+
+</a>
+
 </div>
 
-<div id="tech" class="section">
-<h2>TECH STACK</h2>
-<div class="card">
-Python • Pandas • NumPy • Scikit-learn • SQL • Power BI • Flask • Ollama • Llama 3 • HTML • CSS • JavaScript • Git
-</div>
 </div>
 
-<div id="projects" class="section">
-<h2>PROJECTS</h2>
+</div>
+<!-- ========================= -->
+<!-- ABOUT -->
+<!-- ========================= -->
+
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
 <div class="card">
+
+<p style="font-size:18px; line-height:2; color:#d7e6f5;">
+
+I am an aspiring Data Scientist currently pursuing a Master of Computer
+Applications (MCA) in Data Science & Big Data Analytics at Yenepoya
+College of Arts and Science, Mangaluru.
+
+I have a strong interest in Machine Learning, Artificial Intelligence,
+Data Analytics, Data Visualization and Big Data technologies.
+I enjoy analyzing data, building intelligent applications and creating
+solutions that solve real-world problems.
+
+Along with data science, I have experience in Python, SQL,
+HTML, CSS, JavaScript, Flask, Power BI and Git.
+I continuously improve my technical knowledge by working on projects,
+earning certifications and exploring modern AI technologies.
+
+My goal is to build a successful career as a Data Scientist,
+developing intelligent systems that help organizations make
+better data-driven decisions.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- EDUCATION -->
+<!-- ========================= -->
+
+<section id="education">
+
+<h2 class="section-title">
+
+Education
+
+</h2>
+
+<div class="card">
+
+<h3>MCA – Data Science & Big Data Analytics</h3>
+
+<p>
+
+Yenepoya College of Arts and Science, Mangaluru
+
+</p>
+
+<p>
+
+2025 – Present
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Bachelor of Computer Applications (BCA)</h3>
+
+<p>
+
+Anjuman Institute of Management & Computer Applications,
+Bhatkal
+
+</p>
+
+<p>
+
+2021 – 2024
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Pre-University</h3>
+
+<p>
+
+Anand Ashram Composite PU College,
+Bhatkal
+
+</p>
+
+<p>
+
+2021
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Secondary School</h3>
+
+<p>
+
+The Indian School,
+Kingdom of Bahrain
+
+</p>
+
+<p>
+
+2019
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- SKILLS -->
+<!-- ========================= -->
+
+<section id="skills">
+
+<h2 class="section-title">
+
+Skills
+
+</h2>
+
+<div style="display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;">
+
+<div class="card">
+
+<h3>Programming</h3>
+
+<p>
+
+Python<br>
+
+SQL<br>
+
+HTML<br>
+
+CSS<br>
+
+JavaScript
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Data Science</h3>
+
+<p>
+
+Machine Learning<br>
+
+Data Analytics<br>
+
+Data Visualization<br>
+
+Artificial Intelligence
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Libraries & Frameworks</h3>
+
+<p>
+
+Pandas<br>
+
+NumPy<br>
+
+Scikit-learn<br>
+
+Flask
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Tools</h3>
+
+<p>
+
+Power BI<br>
+
+Git & GitHub<br>
+
+VS Code<br>
+
+XAMPP
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- TECH STACK -->
+<!-- ========================= -->
+
+<section id="tech">
+
+<h2 class="section-title">
+
+Tech Stack
+
+</h2>
+
+<div style="display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;">
+
+<div class="card" style="text-align:center;">
+🐍
+<h3>Python</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+🗄️
+<h3>SQL</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+📊
+<h3>Power BI</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+📈
+<h3>Pandas</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+🔢
+<h3>NumPy</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+🤖
+<h3>Machine Learning</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+🧠
+<h3>Artificial Intelligence</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+🌐
+<h3>Flask</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+💻
+<h3>HTML/CSS</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+⚡
+<h3>JavaScript</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+🐙
+<h3>GitHub</h3>
+</div>
+
+<div class="card" style="text-align:center;">
+📂
+<h3>VS Code</h3>
+</div>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- PROJECTS -->
+<!-- ========================= -->
+
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="card">
+
 <h3>MoodMate – AI Mental Wellness Assistant</h3>
-<p>Built an AI-powered chatbot using Python, Flask, Ollama and Llama 3 with conversational memory and intelligent responses.</p>
-</div>
-<div class="card">
-<h3>Inventory Management System</h3>
-<p>Developed a full-stack inventory management application for managing products, sales, purchases and stock using HTML, CSS, JavaScript and SQL.</p>
-</div>
-<div class="card">
-<h3>Library Attendance System</h3>
-<p>Created a QR-based attendance system that records entry and exit times automatically.</p>
-</div>
+
+<p>
+
+An AI-powered chatbot developed using Python, Flask, Ollama and Llama 3.
+The application understands user conversations, remembers context,
+and provides intelligent, human-like responses for mental wellness support.
+
+</p>
+
 </div>
 
-<div id="certificates" class="section">
-<h2>CERTIFICATES</h2>
+<div class="card">
+
+<h3>Inventory Management System</h3>
+
+<p>
+
+Developed a complete inventory management application using HTML, CSS,
+JavaScript and SQL. The system manages products, purchases, sales,
+guest orders and inventory records efficiently.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>QR Library Attendance System</h3>
+
+<p>
+
+Built a QR code based attendance system where the first scan records
+entry time and the second scan records exit time automatically.
+Developed using HTML, CSS, JavaScript and SQL.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- CERTIFICATES -->
+<!-- ========================= -->
+
+<section id="certificates">
+
+<h2 class="section-title">Certificates</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;">
 
 <a href="azure-ai-fundamentals.pdf" target="_blank" class="cert-link">
 <div class="card">
-<h3>Microsoft Certified: Azure AI Fundamentals</h3>
-<p>Earned the Microsoft Azure AI Fundamentals certification, demonstrating foundational knowledge of Artificial Intelligence, Machine Learning, Computer Vision, Natural Language Processing, Generative AI and Microsoft Azure AI Services.</p>
+<h3>Microsoft Azure AI Fundamentals</h3>
+<p>Microsoft Certified AI Fundamentals Certification.</p>
+</div>
+</a>
+
+<a href="machine_learning.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Machine Learning</h3>
+<p>Machine Learning Certification.</p>
+</div>
+</a>
+
+<a href="semantic_search.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Semantic Search</h3>
+<p>Semantic Search Certification.</p>
+</div>
+</a>
+
+<a href="cloud_computing.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Cloud Computing</h3>
+<p>Cloud Computing Certification.</p>
+</div>
+</a>
+
+<a href="ethical_hacking.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Ethical Hacking</h3>
+<p>Ethical Hacking Certification.</p>
+</div>
+</a>
+
+<a href="Build_Responsive_Website.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Responsive Web Development</h3>
+<p>Responsive Website Development Certificate.</p>
+</div>
+</a>
+
+<a href="swayam_cert.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Design Thinking & Innovation</h3>
+<p>SWAYAM Certification.</p>
+</div>
+</a>
+
+<a href="Coursera 2OVR4A8M9UKW.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>GenAI for Data Engineers: Scaling with GenAI</h3>
+<p>Professional Online Learning Certificate.</p>
+</div>
+</a>
+
+<a href="DVT.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Data Visualization Techniques</h3>
+<p>Professional Certification.</p>
+</div>
+</a>
+
+<a href="Nashit+Hayath_15399.pdf" target="_blank" class="cert-link">
+<div class="card">
+<h3>Python Fundamentals</h3>
+<p>Professional Technical Certification.</p>
 </div>
 </a>
 
 </div>
 
-<div id="contact" class="section">
-<h2>CONTACT</h2>
-<p>📞 +91 8105091363</p>
-<p>📧 nashitbkl@gmail.com</p>
+</section>
+
+<!-- ========================= -->
+<!-- CONTACT -->
+<!-- ========================= -->
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="card">
+
+<h3>Let's Connect</h3>
+
+<br>
+
+<p>📞 <strong>+91 8105091363</strong></p>
+
+<br>
+
+<p>📧 <strong>nashitbkl@gmail.com</strong></p>
+
+<br>
+
 <p>📍 Mangaluru, Karnataka, India</p>
+
+<br><br>
+
+<p>
+
+Thank you for visiting my portfolio.
+Feel free to connect with me for opportunities,
+collaborations or discussions related to
+Data Science, Machine Learning and AI.
+
+</p>
+
 </div>
 
-<div class="footer">© 2026 Nashit Hayath | Aspiring Data Scientist</div>
+</section>
 
-<button id="topBtn" onclick="goTop()">↑</button>
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer style="text-align:center;padding:40px;background:#01070d;color:#9fb9d1;">
+
+© 2026 Nashit Hayath • Aspiring Data Scientist
+
+</footer>
+
+<!-- ========================= -->
+<!-- BACK TO TOP -->
+<!-- ========================= -->
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})"
+
+style="position:fixed;
+bottom:30px;
+right:30px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#1ea7ff;
+color:white;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(30,167,255,.4);">
+
+↑
+
+</button>
 
 </body>
+
 </html>
